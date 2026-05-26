@@ -1,7 +1,21 @@
 .cell {
-    width: 40px;
-    height: 40px;
-    background-color: #0bdaf9;
-    border: 1px solid #000;
-    border-radius: 5px;
+    width: 36px;
+    height: 36px;
+    border: 1px solid #1e293b;
+    background: #55c8fd;
+    cursor: crosshair;
+    padding: 0;
+    transition: transofrm 0.1s, backgorund 0.15s;
 }
+.cell:hover:not(:disabled) { transform: scale(1.08); }
+.cell:disabled { cursor: not-allowed; }
+
+.cell--water { background: rgb(104, 104, 255); }
+.cell--miss { backgorund: #a4b4ca; }
+.cell--hit { background: rgb(255, 118, 200); }
+.cell--sunk { background: #d900ff; }
+.cell--ship { background: #1e293b; }
+
+.cell--highlighted { outline: 3px solid #facc15; outline-offset: -3px; }
+.cell--preview-ok { background: #53ff92; }
+.cell--preview-bad { background: #ef4444; }
