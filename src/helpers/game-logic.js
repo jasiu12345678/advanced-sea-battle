@@ -1,6 +1,7 @@
 import { SHIPS, BOARD_SIZE, CELL_STATES } from "../constants";
 
 export const createEmptyBoard = () => Array.from({length: BOARD_SIZE * BOARD_SIZE}, () => ({state: CELL_STATES.WATER, shipId: null}));
+
 export const canPlaceShip = (board, startIdx, size, orientation) => {
     const startRow = Math.floor(startIdx / BOARD_SIZE);
     const startCol = startIdx % BOARD_SIZE;
@@ -22,11 +23,7 @@ export const canPlaceShip = (board, startIdx, size, orientation) => {
 }
 
 export const placeShip = (board, fleet, startIdx, size, orientation, name) => {
-    const cells = [];
-
-    for (let i = 0; i < size; i++) {
-        cells.push(orientation === "horizontal" ? startIdx + i : startIdx + i * BOARD_SIZE);
-      }
+    const cells = getShipCells(startIdx, size, orientation);
     
     const shipId = fleet.length;
 
@@ -83,3 +80,15 @@ export const processShot = (board, fleet, idx) => {
 }
 
 export const isFleetDestroyed = (fleet) => fleet.length > 0 && fleet.every(s => s.hits === s.size);
+
+export const getShipCells = (startIdx, size, orientation) => {
+    const cells = [];
+    for (let i =0; i< size; i++) {
+        cells.push(
+            orientation === "horizontal"
+        ? startIdx + i
+        : startIdx + i * BOARD_SIZE
+        );
+    }
+    return cells;
+}

@@ -1,5 +1,6 @@
 export const TURN_TIME = 15; // seconds
 export const RADAR_THRESHOLD = 3000; // miliseconds
+export const COMPUTER_TURN_DELAY = 800; // miliseconds
 
 export const MAX_FUEL = 100;
 export const INITIAL_FUEL = MAX_FUEL;

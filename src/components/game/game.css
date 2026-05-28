@@ -1,0 +1,15 @@
+.game {
+    text-align: center;
+    padding: 20px;
+}
+
+.game_boards {
+    display:flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+.game_boards > div {
+    text-align: center;
+}

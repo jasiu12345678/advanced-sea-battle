@@ -2,8 +2,17 @@ import "./assets/styles/App.css";
 import Board from "./components/board/board";
 import { createEmptyBoard } from "./helpers/game-logic";
 import { generateRandomFleet, processShot, isFleetDestroyed } from "./helpers";
+import Setup from "./components/setup/setup";
+import Game from "./components/game/game";
+import { useState, useEffect } from "react";
 
 function App() {
+
+  const [phase, setPhase] = useState("setup");
+  const [config, setConfig] = useState(null);
+
+  //tests
+  /*
   const { board, fleet } = generateRandomFleet();
   console.log("fleet: ", fleet);
   console.log("board: ", board);
@@ -21,16 +30,17 @@ function App() {
 
   const cells = createEmptyBoard();
 
+  */
+
   return (
     <div className="container">
-      <header>
         <h1>Advanced Sea Battle</h1>
-      </header>
-
-      <div className="boards">
-        <Board cells={cells} />
-        <Board cells={cells} />
-      </div>
+        {phase === "setup" && (
+          <Setup onSetupComplete={(c) => {setConfig(c); setPhase("playing"); }} />
+        )}
+        {phase === "playing" && (
+          <Game config={config} onGameEnd={(r) => { console.log("Score: ", r); setPhase("setup"); }} />
+        )}
     </div>
   );
 }
