@@ -1,15 +1,29 @@
 .game {
-    text-align: center;
-    padding: 20px;
+    width: 100%;
+    padding: 16px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
 }
 
-.game_boards {
-    display:flex;
-    justify-content: center;
-    gap: 40px;
-    margin-top: 20px;
+.game__boards {
+    display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 32px;
 }
-.game_boards > div {
-    text-align: center;
+
+.game__board-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.game__board-col h3 {
+    font-size: 1rem;
+    color: var(--navy-800);
 }

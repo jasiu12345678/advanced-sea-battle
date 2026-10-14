@@ -1,77 +1,23 @@
-/**********************************************
-*** © Linguagens Script > DEIS > ISEC > IPC 
-*** Jogo de Memória em React
-*** Estilos App.js 
-**********************************************/
 #container {
-  margin: 20px 0 10px 0;
-  position: relative;
-  margin: 20px auto;
+  width: 100%;
+  max-width: 1150px;
+  margin: 24px auto;
+  padding: 15px 20px 20px;
   display: flex;
-  height: 100%;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 15px 20px 10px 20px;
-  background-color: #fff;
-  color: grey;
-  box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.3);
-  width: 500px;
-  min-width: 450px;
-  border-radius: 10px;
+  background-color: var(--light-blue);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
 }
-main {
-  width: 100%;
-}
+
 #container > header {
-  font-size: 1.2em;
+  font-size: 1.9rem;
   text-align: center;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   line-height: 1.5em;
-  color: var(--globalColor);
-}
-footer {
-  font-size: xx-small;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
-}
-.title,
-.subtitle {
-  font-family: inherit;
-  font-size: 1.1rem;
-  text-align: center;
-  letter-spacing: 2px;
-  line-height: 1.75em;
-  color: var(--globalColor);
+  color: var(--navy-800);
 }
 
-.title {
-  text-transform: uppercase;
-}
-
-.subtitle {
-  font-style: italic;
-  font-weight: normal;
-}
-
-.sr-only {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: auto;
-  margin: 0;
-  overflow: hidden;
-  padding: 0;
-  position: absolute !important;
-  width: 1px;
-  white-space: nowrap;
-}
-
-.boards {
-  gap: 40px;
-  justify-content: center;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  display: flex;
-  padding: 10px;
-  width: 100%;
-}
+#container.container--setup { max-width: 520px; }
+#container.container--gameover { max-width: 460px; }

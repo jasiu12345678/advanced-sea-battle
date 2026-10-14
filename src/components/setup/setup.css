@@ -1,0 +1,80 @@
+.setup {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.setup__panel {
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.setup__panel input,
+.setup__panel select {
+    padding: 10px 12px;
+    font-size: 0.95rem;
+    color: var(--text);
+    background: var(--card-soft);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.setup__panel label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.92rem;
+    color: var(--text-muted);
+}
+
+.setup__panel label select { margin-left: auto; }
+
+.setup__panel input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--sea-500);
+}
+
+.setup__panel > p {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    color: var(--navy-800);
+    background: #e0f2fe;
+    border-left: 3px solid var(--sea-500);
+    border-radius: 6px;
+}
+
+.setup__panel button,
+.setup__actions button {
+    padding: 10px 16px;
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: #fff;
+    background: var(--navy-700);
+    border: none;
+    border-radius: 8px;
+    transition: background 0.15s;
+}
+.setup__panel button:hover:not(:disabled),
+.setup__actions button:hover:not(:disabled) { background: var(--navy-800); }
+
+.setup__panel button:disabled,
+.setup__actions button:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.setup__board {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.setup__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+}

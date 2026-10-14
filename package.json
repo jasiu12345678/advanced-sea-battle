@@ -1,13 +1,15 @@
 {
   "name": "advanced-sea-battle",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "dependencies": {
     "react": "^19.2.4",
@@ -22,6 +24,9 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.4.0",
-    "vite": "^8.0.4"
-  }
+    "vite": "^8.0.4",
+    "vitest": "^5.0.4"
+  },
+  "description": "Battleship with fuel, turn timer, reward radar and a hunt/target AI. React 19 + Vite.",
+  "license": "MIT"
 }

@@ -1,48 +1,39 @@
-import "./assets/styles/App.css";
-import Board from "./components/board/board";
-import { createEmptyBoard } from "./helpers/game-logic";
-import { generateRandomFleet, processShot, isFleetDestroyed } from "./helpers";
-import Setup from "./components/setup/setup";
+import { useState } from "react";
+import { PHASE } from "./constants";
 import Game from "./components/game/game";
-import { useState, useEffect } from "react";
+import GameOver from "./components/game-over/game-over";
+import Setup from "./components/setup/setup";
+import "./assets/styles/App.css";
 
 function App() {
+    const [phase, setPhase] = useState(PHASE.SETUP);
+    const [config, setConfig] = useState(null);
+    const [result, setResult] = useState(null);
 
-  const [phase, setPhase] = useState("setup");
-  const [config, setConfig] = useState(null);
+    const startGame = (newConfig) => {
+        setConfig(newConfig);
+        setPhase(PHASE.PLAYING);
+    };
 
-  //tests
-  /*
-  const { board, fleet } = generateRandomFleet();
-  console.log("fleet: ", fleet);
-  console.log("board: ", board);
-  
-  const shot = processShot( board, fleet, 0);
-  console.log("shot at idx 0", shot.result);
+    const endGame = (gameResult) => {
+        setResult(gameResult);
+        setPhase(PHASE.GAME_OVER);
+    };
 
-  let b = board, f = fleet;
-  for (const idx of fleet[0].cells) {
-    const r = processShot(b, f, idx);
-    b = r.board; f = r.fleet;
-  }
-  console.log("is first ship sunk", f[0].hits === f[0].size);
-  console.log("is fleet destroyed", isFleetDestroyed(f));
+    const restart = () => {
+        setConfig(null);
+        setResult(null);
+        setPhase(PHASE.SETUP);
+    };
 
-  const cells = createEmptyBoard();
-
-  */
-
-  return (
-    <div className="container">
-        <h1>Advanced Sea Battle</h1>
-        {phase === "setup" && (
-          <Setup onSetupComplete={(c) => {setConfig(c); setPhase("playing"); }} />
-        )}
-        {phase === "playing" && (
-          <Game config={config} onGameEnd={(r) => { console.log("Score: ", r); setPhase("setup"); }} />
-        )}
-    </div>
-  );
+    return (
+        <div id="container" className={`container--${phase}`}>
+            <header>Advanced Sea Battle</header>
+            {phase === PHASE.SETUP && <Setup onSetupComplete={startGame} />}
+            {phase === PHASE.PLAYING && <Game config={config} onGameEnd={endGame} />}
+            {phase === PHASE.GAME_OVER && <GameOver result={result} onRestart={restart} />}
+        </div>
+    );
 }
 
 export default App;

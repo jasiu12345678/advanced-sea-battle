@@ -1,15 +1,34 @@
-/**********************************************
-*** © Linguagens Script > DEIS > ISEC > IPC 
-*** Jogo de Memória em React
-*** Estilos Index.js
-**********************************************/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
 :root {
-  --globalColor: #404487;
-  --messageColor: rgb(11, 11, 241);
-  --boxshadow0: 0px 0px 0px;
-  --top10Color: #404487;
-  --gameOverColor: #404487;
+  --navy-800: #0f2942;
+  --navy-700: #1f5089;
+  --light-blue: #dafafa;
+
+  --sea-500: #0ea5e9;
+  --sea-400: #38bdf8;
+
+  --card-soft: #f1f5f9;
+  --border: #d8e0ea;
+  --text: #1e293b;
+  --text-muted: #64748b;
+  --text-light: #e2e8f0;
+
+  --cell-water: #38bdf8;
+  --cell-miss: #94a3b8;
+  --cell-hit: #ff6cc2;
+  --cell-sunk: #9e0ece;
+  --cell-ship: #334155;
+
+  --ok: #22c55e;
+  --bad: #ef4444;
+  --warn: #facc15;
+
+  --radius: 10px;
+  --shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+
+  /* Shrinks on narrow screens so a 10x10 board always fits. */
+  --cell-size: clamp(22px, calc((100vw - 120px) / 10), 34px);
 }
 
 * {
@@ -19,27 +38,26 @@
 }
 
 body {
-  background: linear-gradient(#555, rgba(0, 0, 0, 0.1)) fixed;
-  font-family: Verdana, "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+  min-height: 100vh;
+  font-family: "Poppins", "Segoe UI", system-ui, sans-serif;
+  color: var(--text);
+  background: url("../water_background.jpg") center / cover fixed;
 }
 
+button,
 select,
-label,
-dd,
-button {
-  padding: 5px;
-  border-radius: 5px;
-  outline: none;
+input {
+  font-family: inherit;
 }
-#message,
-footer,
-select,
-#panel-control button,
-#panel-control dt,
-#panel-control dd {
-  user-select: none;
-}
-select,
-button {
+
+button,
+select {
   cursor: pointer;
+}
+
+button:focus-visible,
+select:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--navy-700);
+  outline-offset: 2px;
 }
